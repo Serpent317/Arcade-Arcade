@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     float moveSpeed, shootDelay, bounds;    // Player gets a force as input is pressed, Enemy instead gets constant speed
     public GameObject bulletPrefab;
     GameObject player;
-    bool canShoot;
+    bool canShoot, alreadyDead;
 
     // Start is called before the first frame update
     void Start()
@@ -21,17 +21,21 @@ public class Enemy : MonoBehaviour
         bounds = 8.5f;
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
+        alreadyDead = false;
         rb.freezeRotation = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-
-        if (canShoot && Time.time > 3f)
+        if (!alreadyDead)
         {
-            StartCoroutine(Shoot());
+            Move();
+
+            if (canShoot && Time.time > 3f)
+            {
+                StartCoroutine(Shoot());
+            }
         }
     }
 
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
     public void Died()
     {
         player.GetComponent<Player>().Score();
+        alreadyDead = true;
         StartCoroutine(EnemyDied());
     }
 
@@ -79,7 +84,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
+            Debug.Log(rb.velocity.x);
             rb.velocity = new Vector2(-rb.velocity.x, 0);
+            Debug.Log(rb.velocity.x);
         }
     }
 }

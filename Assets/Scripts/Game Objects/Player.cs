@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     float moveForce, shootDelay, bounds;
     public GameObject bulletPrefab, gameManager;
-    bool canShoot;
+    bool canShoot, injured;
     public Text livesText, scoreText;
     int lives, score;
 
@@ -18,9 +18,10 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         moveForce = 500.0f;
         canShoot = true;
+        injured = false;
         shootDelay = 1.0f;
         bounds = 8.5f;
-        lives = 3;
+        lives = 5;
         score = 0;
         rb.freezeRotation = true;
     }
@@ -85,9 +86,12 @@ public class Player : MonoBehaviour
 
     public void Died()
     {
-        lives--;
-        livesText.text = lives.ToString();
-        StartCoroutine(PlayerDied());
+        if (!injured)
+        {
+            lives--;
+            livesText.text = lives.ToString();
+            StartCoroutine(PlayerDied());
+        }
     }
 
     IEnumerator PlayerDied()
@@ -96,8 +100,10 @@ public class Player : MonoBehaviour
         {
             rb.freezeRotation = false;
         }
+        injured = true;
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
+        injured = false;
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         if (lives == 0)
         {
@@ -109,9 +115,15 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
-        if (score == 3)
+        if (score == 6)
         {
-            gameManager.GetComponent<GameManager>().Win();
+            StartCoroutine(PlayerScore());
         }
+    }
+
+    IEnumerator PlayerScore()
+    {
+        yield return new WaitForSeconds(1f);
+        gameManager.GetComponent<GameManager>().Win();
     }
 }

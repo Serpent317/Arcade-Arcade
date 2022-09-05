@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public Rigidbody2D rb;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -29,8 +21,11 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Player") == 0)
         {
-            Debug.Log("Bullet collided with player");
             collision.gameObject.GetComponent<Player>().Died();
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
