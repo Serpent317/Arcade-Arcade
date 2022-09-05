@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
         alreadyDead = false;
-        rb.freezeRotation = true;
+        //rb.freezeRotation = true;
     }
 
     void FixedUpdate()

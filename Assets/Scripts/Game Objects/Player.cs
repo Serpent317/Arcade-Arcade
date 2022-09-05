@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
         injured = false;
         shootDelay = 1.0f;
         bounds = 8.5f;
-        lives = 5;
+        lives = 3;
         score = 0;
-        numEnemies = 4;
+        numEnemies = 5;
         rb.freezeRotation = true;
     }
 
@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     // Player turns red for a second after getting hit, is able to rotate for a second after dying
     IEnumerator PlayerDied()
     {
-        if (lives == 0)
+        if (lives == 1)
         {
             rb.freezeRotation = false;
         }

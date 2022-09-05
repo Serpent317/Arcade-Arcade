@@ -63,19 +63,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1516}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 2044}
     - Class: 114
-      Script: {instanceID: 2678}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3344}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3464}
+      Script: {instanceID: 3346}
     - Class: 114
-      Script: {instanceID: 23130}
+      Script: {instanceID: 3466}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -114,25 +114,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2338}
+      Script: {instanceID: 2342}
     - Class: 114
-      Script: {instanceID: 2678}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2790}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3002}
+      Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3344}
+      Script: {instanceID: 3346}
     - Class: 114
-      Script: {instanceID: 5222}
+      Script: {instanceID: 5218}
     - Class: 114
-      Script: {instanceID: 24208}
+      Script: {instanceID: 5280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -171,19 +171,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1516}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2678}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 2932}
     - Class: 114
-      Script: {instanceID: 3344}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3464}
+      Script: {instanceID: 3346}
     - Class: 114
-      Script: {instanceID: 23126}
+      Script: {instanceID: 3466}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -220,19 +220,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1516}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 2126}
     - Class: 114
-      Script: {instanceID: 2678}
+      Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3344}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3464}
+      Script: {instanceID: 3346}
     - Class: 114
-      Script: {instanceID: 23118}
+      Script: {instanceID: 3466}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -328,6 +328,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 32ada221ffbb2fa20934e72dd0f4cc8a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOver
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -429,6 +441,12 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: HowToPlay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: Bullet
   - hash:
       serializedVersion: 2
@@ -510,16 +528,16 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 69415240821be7986b27e72bf9609a30
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 69415240821be7986b27e72bf9609a30
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 349d08daa6108b9a28f8c38fd40ce96f
@@ -750,6 +768,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyBullet
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -790,30 +814,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainMenu
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HowToPlay
-  - hash:
-      serializedVersion: 2
-      Hash: 32ada221ffbb2fa20934e72dd0f4cc8a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameOver
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyBullet
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
