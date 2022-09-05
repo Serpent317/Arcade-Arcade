@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -21,9 +22,10 @@ public class Player : MonoBehaviour
         injured = false;
         shootDelay = 1.0f;
         bounds = 8.5f;
-        lives = 3;
+        lives = 5;
         score = 0;
-        numEnemies = 5;
+        numEnemies = PlayerPrefs.GetInt("NumEnemies");
+        Debug.Log(numEnemies);
         rb.freezeRotation = true;
     }
 
@@ -109,7 +111,14 @@ public class Player : MonoBehaviour
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         if (lives == 0)
         {
-            gameManager.GetComponent<GameManager>().EndGame();
+            if (SceneManager.GetActiveScene().name.Equals("Arcade Arcade"))
+            {
+                gameManager.GetComponent<GameManagerArcade>().EndGame();
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>().EndGame();
+            }
         }
     }
 
@@ -125,7 +134,15 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerScore()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         yield return new WaitForSeconds(1f);
-        gameManager.GetComponent<GameManager>().Win();
+        if (SceneManager.GetActiveScene().name.Equals("Arcade Arcade"))
+        {
+            gameManager.GetComponent<GameManagerArcade>().Win();
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().Win();
+        }
     }
 }

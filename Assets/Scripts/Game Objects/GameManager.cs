@@ -8,13 +8,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerPrefs.SetInt("NumEnemies", 7);
     }
 
     public void EndGame()
@@ -26,6 +20,6 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         PlayerPrefs.SetString("Result", "Win");
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Arcade Arcade");
     }
 }

@@ -56,15 +56,16 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Menu\GameOver.cs" />
+    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Game Objects\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Menu\HowToPlay.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Bullet.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Bounds.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Player.cs" />
-    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Menu\HowToPlay.cs" />
-    <Compile Include="Assets\Scripts\Menu\GameOver.cs" />
     <Compile Include="Assets\Scripts\Game Objects\EnemyBullet.cs" />
+    <Compile Include="Assets\Scripts\Game Objects\GameManagerArcade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
