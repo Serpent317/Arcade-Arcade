@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         moveSpeed = 5f;
         rb.velocity = new Vector2(moveSpeed, 0);
-        shootDelay = 1.0f;
+        shootDelay = 1.5f;
         bounds = 8.5f;
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
@@ -25,20 +25,21 @@ public class Enemy : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!alreadyDead)
         {
             Move();
 
-            if (canShoot && Time.time > 3f)
+            // 3f is the delay between the start of the game and when the enemy can start to shoot
+            if (canShoot && Time.timeSinceLevelLoad > 3f)
             {
                 StartCoroutine(Shoot());
             }
         }
     }
 
+    // Keeps the enemy from going out of bounds
     void Move()
     {
         if (rb.transform.position.x < -bounds)
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Fires bullet game object
+    // Fires enemybullet game object
     IEnumerator Shoot()
     {
         canShoot = false;
@@ -71,9 +72,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator EnemyDied()
     {
+        // Enemy turns red and can rotate for a second after killed
         rb.freezeRotation = false;
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
+
+        // Enemy disappears after the second long delay
         if (gameObject != null)
         {
             Destroy(gameObject);
@@ -84,9 +88,14 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
-            Debug.Log(rb.velocity.x);
-            rb.velocity = new Vector2(-rb.velocity.x, 0);
-            Debug.Log(rb.velocity.x);
+            if (rb.transform.position.x > collision.transform.position.x)
+            {
+                rb.velocity = new Vector2(moveSpeed, 0);
+            }
+            else if (rb.transform.position.x < collision.transform.position.x)
+            {
+                rb.velocity = new Vector2(moveSpeed, 0);
+            }
         }
     }
 }

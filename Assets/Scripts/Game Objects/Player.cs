@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab, gameManager;
     bool canShoot, injured;
     public Text livesText, scoreText;
-    int lives, score;
+    int lives, score, numEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         bounds = 8.5f;
         lives = 5;
         score = 0;
+        numEnemies = 4;
         rb.freezeRotation = true;
     }
 
@@ -94,13 +95,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Player turns red for a second after getting hit, is able to rotate for a second after dying
     IEnumerator PlayerDied()
     {
         if (lives == 0)
         {
             rb.freezeRotation = false;
         }
-        injured = true;
+        injured = true; // Invincibility frame
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
         injured = false;
@@ -115,7 +117,7 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
-        if (score == 6)
+        if (score == numEnemies)
         {
             StartCoroutine(PlayerScore());
         }

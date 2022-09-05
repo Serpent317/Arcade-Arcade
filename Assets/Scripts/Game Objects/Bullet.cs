@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameObject != null && transform.position.y > 5)
         {
