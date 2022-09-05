@@ -8,9 +8,8 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     float moveSpeed, shootDelay, bounds;    // Player gets a force as input is pressed, Enemy instead gets constant speed
     public GameObject bulletPrefab;
+    GameObject player;
     bool canShoot;
-    public Text scoreText;
-    int score;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +19,9 @@ public class Enemy : MonoBehaviour
         rb.velocity = new Vector2(moveSpeed, 0);
         shootDelay = 1.0f;
         bounds = 8.5f;
+        player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
-        score = 0;
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -53,18 +53,33 @@ public class Enemy : MonoBehaviour
         canShoot = false;
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5f);
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }
 
     public void Died()
     {
-        score++;
-        scoreText.text = score.ToString();
+        player.GetComponent<Player>().Score();
+        StartCoroutine(EnemyDied());
+    }
+
+    IEnumerator EnemyDied()
+    {
+        rb.freezeRotation = false;
+        rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1f);
         if (gameObject != null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
+        {
+            rb.velocity = new Vector2(-rb.velocity.x, 0);
         }
     }
 }

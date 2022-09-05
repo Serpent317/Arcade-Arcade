@@ -19,6 +19,13 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        //SceneManager.LoadScene("Gameover");
+        PlayerPrefs.SetString("Result", "Lose");
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void Win()
+    {
+        PlayerPrefs.SetString("Result", "Win");
+        SceneManager.LoadScene("GameOver");
     }
 }

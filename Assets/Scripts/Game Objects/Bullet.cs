@@ -15,8 +15,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb.AddForce(new Vector2(0, moveForce * Time.deltaTime));
-
         if (gameObject != null && transform.position.y > 5)
         {
             Destroy(gameObject);
@@ -32,22 +30,6 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
             collision.gameObject.GetComponent<Enemy>().Died();
-        }
-        else if (collision.gameObject.tag.CompareTo("Player") == 0)
-        {
-            collision.gameObject.GetComponent<Player>().Died();
-        }
-        else if (collision.gameObject.tag.CompareTo("Bullet") == 0)
-        {
-            if (collision.gameObject != null)
-            {
-                Destroy(collision.gameObject);
-            }
-            if (gameObject != null)
-            {
-                Destroy(gameObject);
-            }
-            collision.gameObject.GetComponent<Player>().UltraScore();
         }
     }
 }

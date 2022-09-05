@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.92715335, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,4 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51a6131d1e3c864ea7f04d14b4b46f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 603425488384159994}
+  bulletPrefab: {fileID: 0}
+  gameManager: {fileID: 0}
+  livesText: {fileID: 0}
+  scoreText: {fileID: 0}

@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     float moveForce, shootDelay, bounds;
     public GameObject bulletPrefab, gameManager;
     bool canShoot;
-    public Text livesText;
-    int lives;
+    public Text livesText, scoreText;
+    int lives, score;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
         shootDelay = 1.0f;
         bounds = 8.5f;
         lives = 3;
+        score = 0;
+        rb.freezeRotation = true;
     }
 
     void FixedUpdate()
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
         canShoot = false;
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5f);
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 7f);
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }
@@ -85,14 +87,31 @@ public class Player : MonoBehaviour
     {
         lives--;
         livesText.text = lives.ToString();
-        if (lives <= 0)
+        StartCoroutine(PlayerDied());
+    }
+
+    IEnumerator PlayerDied()
+    {
+        if (lives == 0)
         {
-            //gameManager.GetComponenet<GameManager>().EndGame();
+            rb.freezeRotation = false;
+        }
+        rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1f);
+        rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+        if (lives == 0)
+        {
+            gameManager.GetComponent<GameManager>().EndGame();
         }
     }
 
-    public void UltraScore()
+    public void Score()
     {
-
+        score++;
+        scoreText.text = score.ToString();
+        if (score == 3)
+        {
+            gameManager.GetComponent<GameManager>().Win();
+        }
     }
 }
