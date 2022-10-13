@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         lives = 5;
         score = 0;
         numEnemies = PlayerPrefs.GetInt("NumEnemies");
-        Debug.Log(numEnemies);
         rb.freezeRotation = true;
     }
 
@@ -134,7 +133,6 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerScore()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
         yield return new WaitForSeconds(1f);
         if (SceneManager.GetActiveScene().name.Equals("Arcade Arcade"))
         {
