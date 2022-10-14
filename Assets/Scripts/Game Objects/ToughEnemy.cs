@@ -23,7 +23,7 @@ public class ToughEnemy : MonoBehaviour
         canShoot = true;
         alreadyDead = false;
         lives = 2;
-        //rb.freezeRotation = true;
+        rb.freezeRotation = true;
     }
 
     void FixedUpdate()
@@ -67,8 +67,7 @@ public class ToughEnemy : MonoBehaviour
 
     public void Died()
     {
-        lives--;
-        if (lives == 0)
+        if (rb.gameObject.GetComponent<SpriteRenderer>().color == new Color32(222, 0, 255, 255))
         {
             player.GetComponent<Player>().Score();
             alreadyDead = true;
@@ -97,6 +96,8 @@ public class ToughEnemy : MonoBehaviour
 
     IEnumerator EnemyHit()
     {
+        rb.freezeRotation = false;
+
         // Tough Enemy turns red after hit
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
