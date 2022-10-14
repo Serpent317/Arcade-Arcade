@@ -24,12 +24,14 @@ public class Player : MonoBehaviour
         bounds = 8.5f;
         lives = 5;
         score = 0;
-        numEnemies = PlayerPrefs.GetInt("NumEnemies");
+        
         rb.freezeRotation = true;
     }
 
     void FixedUpdate()
     {
+        numEnemies = PlayerPrefs.GetInt("NumEnemies");
+
         Move();
 
         CheckBounds();

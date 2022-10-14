@@ -10,7 +10,6 @@ public class ToughEnemy : MonoBehaviour
     public GameObject bulletPrefab;
     GameObject player;
     bool canShoot, alreadyDead;
-    int lives;  // Tough Enemy gets two lives
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,6 @@ public class ToughEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
         alreadyDead = false;
-        lives = 2;
         rb.freezeRotation = true;
     }
 
