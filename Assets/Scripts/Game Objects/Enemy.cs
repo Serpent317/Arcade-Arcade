@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         moveSpeed = 5f;
         rb.velocity = new Vector2(moveSpeed, 0);
-        shootDelay = 1.5f;
+        shootDelay = Random.Range(1.5f, 2.5f);
         bounds = 8.5f;
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             Move();
 
             // 3f is the delay between the start of the game and when the enemy can start to shoot
-            if (canShoot && Time.timeSinceLevelLoad > 3f)
+            if (canShoot && Time.timeSinceLevelLoad > shootDelay)
             {
                 StartCoroutine(Shoot());
             }
@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
+        shootDelay = Random.Range(1.0f, 2.5f);
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }

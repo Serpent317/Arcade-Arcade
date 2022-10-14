@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerArcade : MonoBehaviour
 {
+    public int numEnemies;
+
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("NumEnemies", 7);
+        PlayerPrefs.SetInt("NumEnemies", numEnemies);
     }
 
     public void EndGame()
@@ -20,6 +22,6 @@ public class GameManagerArcade : MonoBehaviour
     public void Win()
     {
         PlayerPrefs.SetString("Result", "Win");
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

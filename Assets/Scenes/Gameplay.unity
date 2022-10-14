@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c3a82f2dab28e4f831a2ec8358b99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numEnemies: 7
 --- !u!4 &693037441
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,7 +1051,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 5
 --- !u!222 &1989076057
 CanvasRenderer:
   m_ObjectHideFlags: 0
