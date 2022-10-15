@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("NumEnemies", numEnemies);
+        //Debug.Log("Num enemies is " + numEnemies);
     }
 
     public void EndGame()

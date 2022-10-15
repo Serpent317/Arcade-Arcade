@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab, gameManager;
     bool canShoot, injured;
     public Text livesText, scoreText;
-    int lives, score, numEnemies;
+    int lives, score;
+    public int numEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +24,15 @@ public class Player : MonoBehaviour
         shootDelay = 1.0f;
         bounds = 8.5f;
         lives = 5;
-        score = 0;
-        
+        score = PlayerPrefs.GetInt("Score");
+        scoreText.text = score.ToString();
+        Debug.Log("Numenemies at start is " + numEnemies);
         rb.freezeRotation = true;
     }
 
     void FixedUpdate()
     {
-        numEnemies = PlayerPrefs.GetInt("NumEnemies");
+        //Debug.Log(numEnemies);
 
         Move();
 
@@ -127,7 +129,9 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
-        if (score == numEnemies)
+        numEnemies--;
+        //Debug.Log("Num enemies has been lowered to " + numEnemies);
+        if (numEnemies == 0)
         {
             StartCoroutine(PlayerScore());
         }
@@ -136,13 +140,8 @@ public class Player : MonoBehaviour
     IEnumerator PlayerScore()
     {
         yield return new WaitForSeconds(1f);
-        if (SceneManager.GetActiveScene().name.Equals("Arcade Arcade"))
-        {
-            gameManager.GetComponent<GameManagerArcade>().Win();
-        }
-        else
-        {
-            gameManager.GetComponent<GameManager>().Win();
-        }
+        PlayerPrefs.SetInt("Score", score);
+        gameManager.GetComponent<GameManager>().Win();
+        
     }
 }

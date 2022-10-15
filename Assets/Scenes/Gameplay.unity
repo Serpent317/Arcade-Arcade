@@ -1193,6 +1193,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 617100606}
     - target: {fileID: 603425488384159997, guid: 163e51a53f478aa46a8bdf97cc3088a4, type: 3}
+      propertyPath: numEnemies
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 603425488384159997, guid: 163e51a53f478aa46a8bdf97cc3088a4, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 693037439}
