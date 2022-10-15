@@ -35,5 +35,13 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (collision.gameObject.tag.CompareTo("Boss") == 0)
+        {
+            collision.gameObject.GetComponent<Boss>().Died();
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

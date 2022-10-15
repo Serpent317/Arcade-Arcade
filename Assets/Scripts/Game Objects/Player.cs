@@ -26,14 +26,11 @@ public class Player : MonoBehaviour
         lives = 5;
         score = PlayerPrefs.GetInt("Score");
         scoreText.text = score.ToString();
-        Debug.Log("Numenemies at start is " + numEnemies);
         rb.freezeRotation = true;
     }
 
     void FixedUpdate()
     {
-        //Debug.Log(numEnemies);
-
         Move();
 
         CheckBounds();

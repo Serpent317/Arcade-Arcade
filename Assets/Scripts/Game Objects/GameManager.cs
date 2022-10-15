@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int numEnemies;
+    //public int numEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("NumEnemies", numEnemies);
+        //PlayerPrefs.SetInt("NumEnemies", numEnemies);
         //Debug.Log("Num enemies is " + numEnemies);
     }
 

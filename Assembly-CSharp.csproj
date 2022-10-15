@@ -64,9 +64,10 @@
     <Compile Include="Assets\Scripts\Game Objects\Bullet.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Bounds.cs" />
     <Compile Include="Assets\Scripts\Game Objects\GameManagerArcade.cs" />
+    <Compile Include="Assets\Scripts\Game Objects\ToughEnemy.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Player.cs" />
     <Compile Include="Assets\Scripts\Game Objects\EnemyBullet.cs" />
-    <Compile Include="Assets\Scripts\Game Objects\ToughEnemy.cs" />
+    <Compile Include="Assets\Scripts\Game Objects\Boss.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
