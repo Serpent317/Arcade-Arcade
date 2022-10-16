@@ -111,14 +111,9 @@ public class Player : MonoBehaviour
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         if (lives == 0)
         {
-            if (SceneManager.GetActiveScene().name.Equals("Arcade Arcade"))
-            {
-                gameManager.GetComponent<GameManagerArcade>().EndGame();
-            }
-            else
-            {
-                gameManager.GetComponent<GameManager>().EndGame();
-            }
+
+            gameManager.GetComponent<GameManager>().EndGame();
+            
         }
     }
 
@@ -138,6 +133,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("Score", score);
+        if (score > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
         gameManager.GetComponent<GameManager>().Win();
         
     }

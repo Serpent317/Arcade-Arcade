@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text resultText;
+    public Text resultText, scoreText, highScoreText;
 
     private void Start()
     {
@@ -18,6 +18,10 @@ public class GameOver : MonoBehaviour
         {
             resultText.text = "You Lost! Please try again!";
         }
+
+        scoreText.text = PlayerPrefs.GetInt("Score").ToString();
+        //highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        
     }
 
     public void Title()
