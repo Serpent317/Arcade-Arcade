@@ -22,7 +22,8 @@ public class Credits : MonoBehaviour
     public void MusicCredits()
     {
         creditsTitle.text = "Music Credits";
-        creditsText.text = "Hostiles Inbound: Miguel Johnson\r\n";
+        creditsText.text = "Hostiles Inbound: Miguel Johnson\r\nAggressive Gaming Sport: Alex-Productions" +
+            "\r\n";
         musicButton.SetActive(false);
         artButton.SetActive(true);
     }

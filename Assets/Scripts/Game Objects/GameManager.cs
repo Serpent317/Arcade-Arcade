@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
         //PlayerPrefs.SetInt("NumEnemies", numEnemies);
         //Debug.Log("Num enemies is " + numEnemies);
     }

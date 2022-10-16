@@ -11,6 +11,8 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
+
         if (PlayerPrefs.GetString("Result").CompareTo("Win") == 0)
         {
             resultText.text = "Congratulations! You Win!";
