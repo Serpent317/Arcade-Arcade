@@ -28,7 +28,6 @@ public class GameOver : MonoBehaviour
 
         scoreText.text = PlayerPrefs.GetInt("Score").ToString();
         //highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
-        
     }
 
     public void Title()

@@ -131,8 +131,9 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerScore()
     {
-        yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("Score", score);
+        yield return new WaitForSeconds(1f);
+        
         if (score > PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", score);

@@ -279,6 +279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gameplay Music
       objectReference: {fileID: 0}
+    - target: {fileID: 3873413947676609269, guid: 0fff55ca559a76e44ad5227b47aa1491, type: 3}
+      propertyPath: m_TagString
+      value: Music
+      objectReference: {fileID: 0}
     - target: {fileID: 3873413947676609271, guid: 0fff55ca559a76e44ad5227b47aa1491, type: 3}
       propertyPath: m_RootOrder
       value: 6

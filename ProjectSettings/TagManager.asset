@@ -10,6 +10,7 @@ TagManager:
   - Tough Enemy
   - Boss
   - EnemyArt
+  - Music
   layers:
   - Default
   - TransparentFX
