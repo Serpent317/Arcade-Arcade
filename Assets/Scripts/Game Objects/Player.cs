@@ -121,8 +121,8 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        PlayerPrefs.SetInt("Score", score);
         numEnemies--;
-        //Debug.Log("Num enemies has been lowered to " + numEnemies);
         if (numEnemies == 0)
         {
             StartCoroutine(PlayerScore());
@@ -131,13 +131,13 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerScore()
     {
-        PlayerPrefs.SetInt("Score", score);
         yield return new WaitForSeconds(1f);
-        
+        /*
         if (score > PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
+        */
         gameManager.GetComponent<GameManager>().Win();
         
     }
