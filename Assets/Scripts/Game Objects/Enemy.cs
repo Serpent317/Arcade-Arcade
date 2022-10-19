@@ -66,7 +66,6 @@ public class Enemy : MonoBehaviour
 
     public void Died()
     {
-        player.GetComponent<Player>().Score();
         alreadyDead = true;
         StartCoroutine(EnemyDied());
     }
@@ -76,8 +75,8 @@ public class Enemy : MonoBehaviour
         // Enemy turns red and can rotate for a second after killed
         rb.freezeRotation = false;
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        player.GetComponent<Player>().Score();
         yield return new WaitForSeconds(1f);
-
         // Enemy disappears after the second long delay
         if (gameObject != null)
         {

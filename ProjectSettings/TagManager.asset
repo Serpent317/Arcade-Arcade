@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - EnemyArt
   - Music
+  - LoseMusic
+  - WinMusic
   layers:
   - Default
   - TransparentFX

@@ -16,14 +16,22 @@ public class Credits : MonoBehaviour
 
     public void Title()
     {
+        if (GameObject.FindGameObjectWithTag("WinMusic") != null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("WinMusic"));
+        }
+        if (GameObject.FindGameObjectWithTag("LoseMusic") != null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("LoseMusic"));
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
     public void MusicCredits()
     {
         creditsTitle.text = "Music Credits";
-        creditsText.text = "Hostiles Inbound: Miguel Johnson\r\nAggressive Gaming Sport: Alex-Productions" +
-            "\r\n";
+        creditsText.text = "Hostiles Inbound: Miguel Johnson\r\nAggressive Gaming Sport:\r\n\tAlex-Productions" +
+            "\r\nSpook2: PeriTune\r\nCarefree: Kevin MacLeod";
         musicButton.SetActive(false);
         artButton.SetActive(true);
     }

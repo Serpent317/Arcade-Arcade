@@ -7,6 +7,7 @@ public class HowToPlay : MonoBehaviour
 {
     public void StartGame()
     {
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
         PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene("Level 1");
     }

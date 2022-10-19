@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -132,12 +133,6 @@ public class Player : MonoBehaviour
     IEnumerator PlayerScore()
     {
         yield return new WaitForSeconds(1f);
-        /*
-        if (score > PlayerPrefs.GetInt("HighScore"))
-        {
-            PlayerPrefs.SetInt("HighScore", score);
-        }
-        */
         gameManager.GetComponent<GameManager>().Win();
         
     }

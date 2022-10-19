@@ -9,7 +9,8 @@ public class ToughEnemy : MonoBehaviour
     float moveSpeed, shootDelay, bounds;    // Player gets a force as input is pressed, Enemy instead gets constant speed
     public GameObject bulletPrefab;
     GameObject player;
-    bool canShoot, alreadyDead;
+    bool canShoot, alreadyDead, injured;
+    int lives;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,8 @@ public class ToughEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
         alreadyDead = false;
+        injured = false;
+        lives = 2;
         rb.freezeRotation = true;
     }
 
@@ -65,16 +68,21 @@ public class ToughEnemy : MonoBehaviour
 
     public void Died()
     {
-        if (rb.gameObject.GetComponent<SpriteRenderer>().color == new Color32(222, 0, 255, 255))
+        if (!injured)
         {
-            player.GetComponent<Player>().Score();
-            alreadyDead = true;
-            StartCoroutine(EnemyDied());
-        }
-        else
-        {
-            player.GetComponent<Player>().Score();
-            StartCoroutine(EnemyHit());
+            injured = true;
+            lives--;
+            if (lives == 0)
+            {
+                player.GetComponent<Player>().Score();
+                alreadyDead = true;
+                StartCoroutine(EnemyDied());
+            }
+            else
+            {
+                player.GetComponent<Player>().Score();
+                StartCoroutine(EnemyHit());
+            }
         }
     }
 
@@ -100,21 +108,7 @@ public class ToughEnemy : MonoBehaviour
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
 
+        injured = false;
         rb.gameObject.GetComponent<SpriteRenderer>().color = new Color32(222, 0, 255, 255);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
-        {
-            if (rb.transform.position.x > collision.transform.position.x)
-            {
-                rb.velocity = new Vector2(moveSpeed, 0);
-            }
-            else if (rb.transform.position.x < collision.transform.position.x)
-            {
-                rb.velocity = new Vector2(moveSpeed, 0);
-            }
-        }
     }
 }

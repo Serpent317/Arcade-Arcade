@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
-    private new AudioSource audio;
+    public new AudioSource audio;
 
     private void Awake()
     {

@@ -122,19 +122,4 @@ public class Boss : MonoBehaviour
             rb.gameObject.GetComponent<SpriteRenderer>().color = new Color32(96, 66, 15, 255);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
-        {
-            if (rb.transform.position.x > collision.transform.position.x)
-            {
-                rb.velocity = new Vector2(moveSpeed, 0);
-            }
-            else if (rb.transform.position.x < collision.transform.position.x)
-            {
-                rb.velocity = new Vector2(moveSpeed, 0);
-            }
-        }
-    }
 }
