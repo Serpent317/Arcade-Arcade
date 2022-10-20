@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Music"));
 
         PlayerPrefs.SetInt("Difficulty", 2); // Medium difficulty by default
+        PlayerPrefs.SetInt("ScoreMultiplier", 2);
         PlayerPrefs.SetInt("Score", 0);
     }
 

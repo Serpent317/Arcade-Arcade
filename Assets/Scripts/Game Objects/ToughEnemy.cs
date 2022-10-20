@@ -108,6 +108,14 @@ public class ToughEnemy : MonoBehaviour
 
         // Tough Enemy turns red after hit
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (rb.velocity.x < 0)
+        {
+            rb.velocity = new Vector2(-moveSpeed, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveSpeed, 0);
+        }
         yield return new WaitForSeconds(1f);
 
         injured = false;

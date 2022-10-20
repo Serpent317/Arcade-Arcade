@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-
             lives = 5;
         }
         livesText.text = lives.ToString();
@@ -137,7 +136,7 @@ public class Player : MonoBehaviour
 
     public void Score()
     {
-        score++;
+        score = score + PlayerPrefs.GetInt("ScoreMultiplier");
         scoreText.text = score.ToString();
         PlayerPrefs.SetInt("Score", score);
     }
