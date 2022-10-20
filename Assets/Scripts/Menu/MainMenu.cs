@@ -55,4 +55,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("ChooseOptions");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

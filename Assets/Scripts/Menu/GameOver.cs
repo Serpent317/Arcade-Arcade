@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Music") != null)
         {
             Destroy(GameObject.FindGameObjectWithTag("Music"));
+            GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().StopMusic();
         }
 
         if (PlayerPrefs.GetString("Result").CompareTo("Win") == 0)

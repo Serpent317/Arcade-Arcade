@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/VeryStart.unity
+    guid: 8fe96ecfed7394549b7e37c76a9e8898
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7c250fe0cc717cc459b40edef4b3e619
   - enabled: 1
     path: Assets/Scenes/Help.unity
     guid: 3a7c534c5336050419e7f06813129335
-  - enabled: 1
-    path: Assets/Scenes/Unity Scene Weirdness/HowToPlay.unity
-    guid: 5aad466d78599a24db348c9e274d3ca4
   - enabled: 1
     path: Assets/Scenes/ChooseOptions.unity
     guid: 867a3f1b721b82247b7708df4f4d1056

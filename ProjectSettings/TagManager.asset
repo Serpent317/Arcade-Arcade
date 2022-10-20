@@ -14,6 +14,7 @@ TagManager:
   - LoseMusic
   - WinMusic
   - GameManager
+  - PlayerPrefsDelete
   layers:
   - Default
   - TransparentFX
