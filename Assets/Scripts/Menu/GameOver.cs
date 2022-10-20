@@ -21,13 +21,22 @@ public class GameOver : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("WinMusic").GetComponent<Music>().PlayMusic();
             resultText.text = "Congratulations! You Win!";
+            if (PlayerPrefs.GetInt("Difficulty") == 10)
+            {
+                resultText.text = "How the-?! I mean\r\nCongratulations! You Win!";
+            }
             enemyArt1.SetActive(false);
             enemyArt2.SetActive(false);
+
         }
         else if (PlayerPrefs.GetString("Result").CompareTo("Lose") == 0)
         {
             GameObject.FindGameObjectWithTag("LoseMusic").GetComponent<Music>().PlayMusic();
             resultText.text = "You Lost! Please try again!";
+            if (PlayerPrefs.GetInt("Difficulty") == 10)
+            {
+                resultText.text = "\"Cheaters never prosper\"\r\n- Marmelstein";
+            }
             enemyArt1.SetActive(true);
             enemyArt2.SetActive(true);
         }

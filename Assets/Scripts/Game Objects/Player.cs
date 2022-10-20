@@ -24,7 +24,24 @@ public class Player : MonoBehaviour
         injured = false;
         shootDelay = 1.0f;
         bounds = 8.5f;
-        lives = 5;
+        if (PlayerPrefs.GetInt("Difficulty") == 1)
+        {
+            lives = 7;
+        }
+        else if (PlayerPrefs.GetInt("Difficulty") == 3)
+        {
+            lives = 3;
+        }
+        else if (PlayerPrefs.GetInt("Difficulty") == 10)
+        {
+            lives = 1;
+        }
+        else
+        {
+
+            lives = 5;
+        }
+        livesText.text = lives.ToString();
         score = PlayerPrefs.GetInt("Score");
         scoreText.text = score.ToString();
         rb.freezeRotation = true;

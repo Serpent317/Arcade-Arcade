@@ -17,14 +17,10 @@ public class MainMenu : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("LoseMusic"));
         }
         GameObject[] titleMusic = GameObject.FindGameObjectsWithTag("Music");
-        /*
-        if (titleMusic.Count() > 1)
-        {
-            Destroy(GameObject.FindGameObjectWithTag("Music"));
-        }
-        */
         GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Music"));
+
+        PlayerPrefs.SetInt("Difficulty", 2); // Medium difficulty by default
         PlayerPrefs.SetInt("Score", 0);
     }
 
@@ -42,5 +38,10 @@ public class MainMenu : MonoBehaviour
     public void Help()
     {
         SceneManager.LoadScene("HowToPlay");
+    }
+
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
     }
 }
