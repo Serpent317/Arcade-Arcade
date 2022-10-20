@@ -45,11 +45,11 @@ public class Boss : MonoBehaviour
     // Keeps the enemy from going out of bounds
     void Move()
     {
-        if (rb.transform.position.x - 2.5 < -bounds)
+        if (rb.transform.position.x - 2 < -bounds)
         {
             rb.velocity = new Vector2(moveSpeed, 0);
         }
-        if (rb.transform.position.x + 2.5 > bounds)
+        if (rb.transform.position.x + 2 > bounds)
         {
             rb.velocity = new Vector2(-moveSpeed, 0);
         }
@@ -64,10 +64,10 @@ public class Boss : MonoBehaviour
         bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
         GameObject bullet2 = Instantiate(bulletPrefab);
-        bullet2.transform.position = new Vector2(transform.position.x - 3, transform.position.y - 1);
+        bullet2.transform.position = new Vector2(transform.position.x - 2.5f, transform.position.y - 1);
         bullet2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
         GameObject bullet3 = Instantiate(bulletPrefab);
-        bullet3.transform.position = new Vector2(transform.position.x + 3, transform.position.y - 1);
+        bullet3.transform.position = new Vector2(transform.position.x + 2.5f, transform.position.y - 1);
         bullet3.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
         shootDelay = Random.Range(1.0f, 2.5f);
         yield return new WaitForSeconds(shootDelay);
@@ -112,6 +112,8 @@ public class Boss : MonoBehaviour
     {
         // Tough Enemy turns red after hit
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
+        // Prevents Boss movement from slowing down when shot
         if (rb.velocity.x < 0)
         {
             rb.velocity = new Vector2(-moveSpeed, 0);
