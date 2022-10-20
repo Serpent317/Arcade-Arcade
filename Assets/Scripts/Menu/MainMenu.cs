@@ -16,18 +16,28 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("LoseMusic"));
         }
-        GameObject[] titleMusic = GameObject.FindGameObjectsWithTag("Music");
         GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Music"));
 
-        PlayerPrefs.SetInt("Difficulty", 2); // Medium difficulty by default
-        PlayerPrefs.SetInt("ScoreMultiplier", 2);
+        if (!PlayerPrefs.HasKey("Difficulty"))
+        {
+            PlayerPrefs.SetInt("Difficulty", 2); // Medium difficulty by default
+            PlayerPrefs.SetInt("ScoreMultiplier", 2);
+            PlayerPrefs.SetInt("Lives", 5);
+
+            PlayerPrefs.SetFloat("EnemySpeed", 6f);
+            PlayerPrefs.SetFloat("EnemyBulletSpeed", -6f);
+            PlayerPrefs.SetFloat("BulletDelayLow", 1.5f);
+            PlayerPrefs.SetFloat("BulletDelayHigh", 3f);
+        }
         PlayerPrefs.SetInt("Score", 0);
     }
 
     public void StartGame()
     {
-        Destroy(GameObject.FindGameObjectWithTag("Music"));
+        // Seems to fix the issue?
+        GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().StopMusic();
+
         SceneManager.LoadScene("Level 1");
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     Rigidbody2D rb;
-    float moveSpeed, shootDelay, bounds;    // Player gets a force as input is pressed, Enemy instead gets constant speed
+    float moveSpeed, shootDelay, bounds, delayLow, delayHigh, bulletSpeed;    // Player gets a force as input is pressed, Enemy instead gets constant speed
     public GameObject bulletPrefab;
     GameObject player, gameManager;
     bool canShoot, alreadyDead, injured;
@@ -15,10 +15,13 @@ public class Boss : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        moveSpeed = 5f;
+        moveSpeed = PlayerPrefs.GetFloat("EnemySpeed");
         rb.velocity = new Vector2(moveSpeed, 0);
-        shootDelay = Random.Range(1.5f, 2.5f);
+        delayLow = PlayerPrefs.GetFloat("BulletDelayLow");
+        delayHigh = PlayerPrefs.GetFloat("BulletDelayHigh");
+        shootDelay = Random.Range(delayLow, delayHigh);
         bounds = 8.5f;
+        bulletSpeed = PlayerPrefs.GetFloat("EnemyBulletSpeed");
         player = GameObject.FindGameObjectWithTag("Player");
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         canShoot = true;
@@ -62,14 +65,14 @@ public class Boss : MonoBehaviour
         // Boss fires 3 bullets
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
         GameObject bullet2 = Instantiate(bulletPrefab);
         bullet2.transform.position = new Vector2(transform.position.x - 2.5f, transform.position.y - 1);
-        bullet2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
+        bullet2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
         GameObject bullet3 = Instantiate(bulletPrefab);
         bullet3.transform.position = new Vector2(transform.position.x + 2.5f, transform.position.y - 1);
-        bullet3.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -7f);
-        shootDelay = Random.Range(1.0f, 2.5f);
+        bullet3.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
+        shootDelay = Random.Range(delayLow, delayHigh);
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }

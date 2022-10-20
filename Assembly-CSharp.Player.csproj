@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Menu\GameOver.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\Options.cs" />
     <Compile Include="Assets\Scripts\Game Objects\GameManager.cs" />
     <Compile Include="Assets\Scripts\Menu\Credits.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Enemy.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Assets\Scripts\Game Objects\Player.cs" />
     <Compile Include="Assets\Scripts\Game Objects\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Game Objects\Music.cs" />
-    <Compile Include="Assets\Scripts\Menu\Options.cs" />
+    <Compile Include="Assets\Scripts\Game Objects\PlayerPrefsDelete.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

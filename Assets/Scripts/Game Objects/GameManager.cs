@@ -30,12 +30,22 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Music"));
+            GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().StopMusic();
+        }
         PlayerPrefs.SetString("Result", "Lose");
         SceneManager.LoadScene("GameOver");
     }
 
     public void Win()
     {
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Music"));
+            GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().StopMusic();
+        }
         PlayerPrefs.SetString("Result", "Win");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

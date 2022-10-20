@@ -24,22 +24,7 @@ public class Player : MonoBehaviour
         injured = false;
         shootDelay = 1.0f;
         bounds = 8.5f;
-        if (PlayerPrefs.GetInt("Difficulty") == 1)
-        {
-            lives = 7;
-        }
-        else if (PlayerPrefs.GetInt("Difficulty") == 3)
-        {
-            lives = 3;
-        }
-        else if (PlayerPrefs.GetInt("Difficulty") == 10)
-        {
-            lives = 1;
-        }
-        else
-        {
-            lives = 5;
-        }
+        lives = PlayerPrefs.GetInt("Lives");
         livesText.text = lives.ToString();
         score = PlayerPrefs.GetInt("Score");
         scoreText.text = score.ToString();
@@ -124,27 +109,22 @@ public class Player : MonoBehaviour
         injured = true; // Invincibility frame
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(1f);
-        injured = false;
-        rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         if (lives == 0)
         {
 
             gameManager.GetComponent<GameManager>().EndGame();
-            
+        }
+        else
+        {
+            injured = false;
+            rb.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
     }
 
     public void Score()
     {
-        score = score + PlayerPrefs.GetInt("ScoreMultiplier");
+        score += PlayerPrefs.GetInt("ScoreMultiplier");
         scoreText.text = score.ToString();
         PlayerPrefs.SetInt("Score", score);
     }
-    /*
-    IEnumerator PlayerScore()
-    {
-        yield return new WaitForSeconds(1f);
-        gameManager.GetComponent<GameManager>().Win();
-    }
-    */
 }

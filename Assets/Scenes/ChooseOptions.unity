@@ -479,7 +479,7 @@ RectTransform:
   m_Children:
   - {fileID: 710301832}
   m_Father: {fileID: 1519257849}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -530,8 +530,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HowToPlay, Assembly-CSharp
+      - m_Target: {fileID: 1519257845}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1247,7 +1247,7 @@ RectTransform:
   m_Children:
   - {fileID: 1700933671}
   m_Father: {fileID: 1519257849}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1298,8 +1298,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HowToPlay, Assembly-CSharp
+      - m_Target: {fileID: 1519257845}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58de814d26eedd4daf7b5003d71fd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: {fileID: 0}
+  difficulty: {fileID: 403114360}
 --- !u!114 &1519257846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,8 +1618,8 @@ RectTransform:
   - {fileID: 867129971}
   - {fileID: 1175443988}
   - {fileID: 397113834}
-  - {fileID: 1412781470}
   - {fileID: 628167814}
+  - {fileID: 1412781470}
   - {fileID: 1531735432}
   m_Father: {fileID: 0}
   m_RootOrder: 2
