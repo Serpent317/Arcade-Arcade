@@ -37,11 +37,11 @@ public class MainMenu : MonoBehaviour
 
     public void Help()
     {
-        SceneManager.LoadScene("HowToPlay");
+        SceneManager.LoadScene("Help");
     }
 
     public void Options()
     {
-        SceneManager.LoadScene("Options");
+        SceneManager.LoadScene("ChooseOptions");
     }
 }
