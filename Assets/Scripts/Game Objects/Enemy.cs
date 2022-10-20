@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     float moveSpeed, shootDelay, bounds;    // Player gets a force as input is pressed, Enemy instead gets constant speed
     public GameObject bulletPrefab;
-    GameObject player;
+    GameObject player, gameManager;
     bool canShoot, alreadyDead;
 
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         shootDelay = Random.Range(1.5f, 2.5f);
         bounds = 8.5f;
         player = GameObject.FindGameObjectWithTag("Player");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         canShoot = true;
         alreadyDead = false;
         //rb.freezeRotation = true;
@@ -77,6 +78,7 @@ public class Enemy : MonoBehaviour
         rb.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         player.GetComponent<Player>().Score();
         yield return new WaitForSeconds(1f);
+        gameManager.GetComponent<GameManager>().EnemyDied();
         // Enemy disappears after the second long delay
         if (gameObject != null)
         {

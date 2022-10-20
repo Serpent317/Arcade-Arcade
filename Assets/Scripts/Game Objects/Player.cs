@@ -123,17 +123,12 @@ public class Player : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
         PlayerPrefs.SetInt("Score", score);
-        numEnemies--;
-        if (numEnemies == 0)
-        {
-            StartCoroutine(PlayerScore());
-        }
     }
-
+    /*
     IEnumerator PlayerScore()
     {
         yield return new WaitForSeconds(1f);
         gameManager.GetComponent<GameManager>().Win();
-        
     }
+    */
 }
